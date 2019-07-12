@@ -76,7 +76,7 @@ class ActionCreator {
 
 
 // ================================================
-// Component
+// Component 今回はただのView
 // ユーザイベントの受付 clickされた -> handleHoge発火など
 // イベントハンドラで対応したactionを呼ぶ
 // ================================================
@@ -95,10 +95,13 @@ store.on("CHANGE", () => {
   result.innerHTML = `カウント:${count}`;
 });
 
+// handlerで対応したactionを呼ぶ
+const handleClick = () => {
+  ActionCreator.click(100)
+  action.countUp(count + 1);
+}
+
 // ボタンがクリックされたらアクションのカウントアップを発火
-button.addEventListener('click', () => {action.countUp(count + 1)});
-
-
-
+button.addEventListener('click', handleClick);
 
 
